@@ -19,12 +19,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 50%;
 }
 .on {
   border-top: 5px solid rgb(82, 82, 204);
-}
-.off {
-  opacity: 50%;
+  opacity: 100%;
 }
 .content {
   width: 60%;
@@ -39,8 +38,9 @@
   position: absolute;
   left: 0;
   top: 0;
-}
-#tab2-content, #tab3-content, #tab4-content {
   display: none;
+}
+.shown {
+  display: block;
 }
 
