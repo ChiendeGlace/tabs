@@ -1,16 +1,17 @@
 const tabs = document.getElementsByClassName('tab');
-const tabContents = document.getElementsByClassName('tab-content');
 const tabsArray = Array.from(tabs);
+const tabContents = document.getElementsByClassName('tab-content');
 const tabContentsArray = Array.from(tabContents);
-const currentOn = document.querySelector('.on');
-const currentShown = document.querySelector('.shown');
-const showTabs = (e, i) => {
-  currentOn.classList.remove('on');
-  console.log(currentOn);
-  tabsArray[i].classList.add('on');
-  currentShown.classList.remove('shown');
-  tabContentsArray[i].classList.add('shown');
-};
-tabsArray[1].addEventListener('click', showTabs(i));
+tabsArray.forEach(tab => tab.addEventListener('click', e => {
+  let thisTab = e.target;
+  let myNum = thisTab.dataset.tab;
+  
+  tabsArray.forEach(tab => tab.classList.remove('on'));
+  tabContentsArray.forEach(tab => tab.classList.remove('shown'));
+
+  thisTab.classList.add('on');
+  document.querySelector(`.tab-content[data-target='${myNum}'`).classList.add('shown');
+}));
+
 
 
